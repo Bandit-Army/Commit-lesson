@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3' <-- Commeented out by Joe
+gem 'sqlite3' #<-- Commeented out by Joe per guide, uncommented to attempt to fix error
 group :development, :test do
   gem 'sqlite3'
 end
