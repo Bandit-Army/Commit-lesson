@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+installfest.railsbridge.org tutorial on deploying to heroku. Worked just fine from my Ubunto laptop, but I'm tyring to get my Ubuntu on Windows IDE running as well, and apparently it's hit a snag. I'm pushing the repo here so I can figure out what went wrong later.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.3.3.p222
 
-* System dependencies
+The problem is with the Gemfile. It throws an error stating the need for sqlite3, but heroku doesn't use sqlite3. I think the tutorial had me replace that gem with some kind of false positive?
 
-* Configuration
+It had me change this:
 
-* Database creation
+gem 'sqlite3'
 
-* Database initialization
+to this:
 
-* How to run the test suite
+group :development, :test do
+  gem 'sqlite3'
+end
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+group :production do
+  gem 'pg'
+end
